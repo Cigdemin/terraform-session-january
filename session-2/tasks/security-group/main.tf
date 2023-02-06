@@ -6,13 +6,15 @@
 # add inbound rules
    # Type: give protocol, protocol range , source and CIDR block
    # outbound rules is default open to all trafic
+
+   
 resource "aws_security_group" "main_sg" {
   name        = "allow_inbound_traffic"
   description = "This security group allows inbound traffic for ports: 80,443,22,3306"
   vpc_id = "vpc-08d1b3e58f4fb4b4b"
 
   ingress = [
-    {
+  {
     description      = "http from VPC"
     from_port        = 80
     to_port          = 80
