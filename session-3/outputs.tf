@@ -5,7 +5,7 @@ output "instance_ip_address" {
   description = "The public IP address of the main EC2 instance"
 }
 
-output "instance_volume_id" {
-  value       = aws_instance.first_ec2.volume_id
+output "instance_state" {
+  value       = aws_instance.first_ec2.instance_state
   description = "The public IP address of the main EC2 instance"
 }
