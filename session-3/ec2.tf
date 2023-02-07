@@ -1,9 +1,9 @@
 resource "aws_instance" "first_ec2" {
-  ami           = "ami-06e85d4c3149db26a"
-  instance_type = "t2.micro"
+  ami           = var.ami
+  instance_type = var.instance_type
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # alist of strings #dynamic referances
   tags = {
-    Name = "developer"
+    Name = var.env
   }
 }
 
@@ -18,7 +18,7 @@ resource "aws_instance" "first_ec2" {
 #1.intiger
 #2. float
 #3. Number: 8,6,4,7
-#4.String = "Characters,hwhatever you see on your keyboard"
+#4.String = "Characters,whatever you see on your keyboard"
 #5. Boolean = true,false
 
 #reference to resource : to dynamicly referance security group id without creating it. IT will be created by the same thime or terraform go and find for me
@@ -27,3 +27,6 @@ resource "aws_instance" "first_ec2" {
 
 # "aws_security_group.main_sg.id" = static or hard coded value(string)
 # aws_security_group.main_sg.id = reference to resource >> (string,number,boolean)
+
+#reference to input variable
+#syntax: var.variable_name
