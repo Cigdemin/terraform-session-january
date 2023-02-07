@@ -1,7 +1,7 @@
-resource "aws_security_group" "CreateSG" {   
+resource "aws_security_group" "CreateSG" {  
   name        = "main"
   description = "Allow SSH inbound traffic"
-
+}
   ingress {
     from_port        = 22
     to_port          = 22  #if I put 100 here it gonna open 79 ports 22,23,24,25...100 ports
