@@ -7,5 +7,5 @@ output "instance_ip_address" {
 
 output "instance_state" {
   value       = aws_instance.first_ec2.instance_state
-  description = "The public IP address of the main EC2 instance"
+  description = "The state of the main EC2 instance"
 }
