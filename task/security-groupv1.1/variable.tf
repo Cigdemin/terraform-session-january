@@ -39,6 +39,12 @@ variable "port3" {
   description = "giving port numbers"
   default = "443"
 }
+variable "port4" {
+  type = string
+  description = "giving port numbers"
+  default = "100"
+}
+
 variable "port5" {
   type = string
   description = "giving port numbers"
@@ -74,10 +80,4 @@ variable "port10" {
   type = string
   description = "giving port numbers"
   default = "1000" 
-}
-
-variable "protocol" {
-  type = string
-  description = "specify protocol type"
-  default ="tcp"
 }
