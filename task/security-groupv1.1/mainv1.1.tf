@@ -6,8 +6,8 @@ resource "aws_security_group" "main_sg" {
 
   ingress   {
     description      = "Allow http from VPC"
-    from_port        = format(" %d", var.port1)
-    to_port          = format(" %d", var.port1)
+    from_port        = abs(var.port1)
+    to_port          = abs(var.port1)
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   } 
