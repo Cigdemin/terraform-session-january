@@ -3,16 +3,15 @@ variable "vpc_id" {
   description = "to give vpc id"
   default = "vpc-08d1b3e58f4fb4b4b"
 }
-
-variable "cidr_blocks" {
+variable "vpc_name" {
   type = string
-  description = "defines CIDR block"
-  default = "0.0.0.0/0"
+  description = "This is giving the vpc man"
+  default = "my_task_vpcv1.1"
 }
-
-
-variable "vpc_cidr_blocks" {
+variable "vpc_cidr_block" {
   type = string
   description = "defines VPC CIDR block"
-  default = "10.0.0.0/016"
+  default = "10.0.0.0/16"
 }
+
+
