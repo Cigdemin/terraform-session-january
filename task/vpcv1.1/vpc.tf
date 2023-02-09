@@ -7,7 +7,7 @@
 # Tenancy : default
 # Then Create vpc
 
-resource "aws_vpc" "my_task_vpcv1.1" {
+resource "aws_vpc" "my_task_vpcv1" {
   cidr_block       = var.vpc_cidr_block
   instance_tenancy = "default"
 
