@@ -3,7 +3,7 @@ resource "aws_instance" "main" {
   instance_type = var.instance_type
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # alist of strings #dynamic referances
   tags = {
-    Name = var.env-instances
+    Name = "${var.env}-instances"
   }
 }
 
@@ -12,7 +12,7 @@ resource "aws_instance" "main_frontend" {
   instance_type = var.instance_type
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # alist of strings #dynamic referances
   tags = {
-    Name = var.env-frontend-instance
+    Name = "${var.env}-frontend-instance"
   }
 }
 
