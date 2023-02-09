@@ -18,3 +18,11 @@ variable "port1" {
   description = "giving port numbers"
   default = [ 22, 80, 443, 3306]
 }
+
+
+
+variable "protocol" {
+  type = string
+  description = "specify protocol type"
+  default ="tcp"
+}
