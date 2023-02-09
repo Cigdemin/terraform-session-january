@@ -1,7 +1,7 @@
    
 resource "aws_security_group" "main_sg" {
   name        = var.sg_name
-  description = "This security group allows inbound traffic for ports: 80,443,22,3306"
+  description = "This security group allows inbound traffic for 10 ports"
   vpc_id = var.vpc_id
 
   ingress   {

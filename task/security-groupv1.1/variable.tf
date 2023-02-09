@@ -17,7 +17,11 @@ variable "cidr_blocks" {
   description = "defines CIDR block"
   default = "0.0.0.0/0"
 }
-
+variable "protocol" {
+  type = string
+  description = "specify protocol type"
+  default ="tcp"
+}
 variable "port1" {
   type = string
   description = "giving port numbers"
