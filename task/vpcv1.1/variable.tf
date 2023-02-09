@@ -6,7 +6,7 @@ variable "vpc_id" {
 variable "vpc_name" {
   type = string
   description = "This is giving the vpc man"
-  default = "my_task_vpcv1.1"
+  default = "my_task_vpcv1"
 }
 variable "vpc_cidr_block" {
   type = string
