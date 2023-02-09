@@ -1,4 +1,4 @@
-resource "aws_instance" "first_ec2" {
+resource "aws_instance" "main" {
   ami           = data.aws_ami.amazon_linux_2.id
   instance_type = var.instance_type
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # alist of strings #dynamic referances
@@ -7,7 +7,7 @@ resource "aws_instance" "first_ec2" {
   }
 }
 
-resource "aws_instance" "first_ec2" {
+resource "aws_instance" "main_frontend" {
   ami           = data.aws_ami.amazon_linux_2.id
   instance_type = var.instance_type
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # alist of strings #dynamic referances
