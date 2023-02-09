@@ -5,17 +5,18 @@ resource "aws_security_group" "main_sg" {
   vpc_id = var.vpc_id
 
   ingress   {
-    description      = "Allow http from VPC"
-    from_port        = element(var.port1, count.index)
-    to_port          = element(var.port1, count.index)
+    description      = "Allow ${var.port1} from VPC"
+    from_port        = var.port1
+    to_port          = var.port1
     protocol         = var.protocol
-    cidr_blocks      = ["0.0.0.0/0"]
+    cidr_blocks      = [var.cidr_blocks]
   } 
 
+  
   egress   {
     from_port        = 0
     to_port          = 0
     protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
+    cidr_blocks      = [var.cidr_blocks]
   }
 }
