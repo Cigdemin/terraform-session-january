@@ -40,7 +40,7 @@ variable "cidr_block_public_b" {
   type = string
   default = "10.0.2.0/24"
 }
-variable "cidr_block_public_z" {
+variable "cidr_block_public_c" {
   type = string
   default = "10.0.3.0/24"
 }
