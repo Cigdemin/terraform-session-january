@@ -10,12 +10,17 @@ data "aws_vpc" "selected_vpc" {
   id = var.vpc_id
 }
 
-resource "aws_subnet" "public_subnet_${var.az_name}" {
+resource "aws_subnet" "public_subnet_$${var.az_name}" {
   vpc_id     = data.aws_vpc.selected_vpc
   cidr_block = var.az_name.cidrblock
   availability_zone = var.az_name.availabilityzone
 
 }
+# Why I put $$ to my code? Because I got the error below 
+#Error: Invalid string literal
+#
+# On subnets.tf line 13: Template sequences are not allowed in this string. To
+# include a literal "$", double it (as "$$") to escape it.
 
 
 #resource "aws_subnet" "public_subnet_c" {
