@@ -18,6 +18,9 @@ resource "aws_nat_gateway" "task_natgw" {
   connectivity_type = "public"
   subnet_id         = aws_subnet.public_subnet_a.id
   depends_on = [aws_internet_gateway.task_igw]
+    tags = {
+    Name = "task_natgw"
+  }
 }
 
 
@@ -25,7 +28,7 @@ resource "aws_route_table" "tasktest_private_route_table" {
   vpc_id = aws_vpc.my_task_vpc.id
 
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block = var.cidr_blocks
     nat_gateway_id = aws_nat_gateway.task_natgw.id
   }
 }

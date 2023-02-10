@@ -12,20 +12,33 @@ data "aws_vpc" "selected_vpc" {
 
 resource "aws_subnet" "public_subnet_a" {
   vpc_id     = data.aws_vpc.selected_vpc
-  cidr_block = var.az_name.cidrblock
-  availability_zone = var.az_name.availabilityzone
+  cidr_block = var.cidr_block_public_a
+  availability_zone = var.availability_zone_a
+}
+resource "aws_subnet" "public_subnet_b" {
+  vpc_id     = data.aws_vpc.selected_vpc
+  cidr_block = var.cidr_block_public_b
+  availability_zone = var.availability_zone_b
+}
+resource "aws_subnet" "public_subnet_c" {
+  vpc_id     = data.aws_vpc.selected_vpc
+  cidr_block = var.cidr_block_public_c
+  availability_zone = var.availability_zone_c
+
 
 }
-# Why I put $$ to my code? Because I got the error below 
-#Error: Invalid string literal
-#
-# On subnets.tf line 13: Template sequences are not allowed in this string. To
-# include a literal "$", double it (as "$$") to escape it.
-
-
-#resource "aws_subnet" "public_subnet_c" {
-#  vpc_id     = aws_vpc.my_task_vpc.id
-#  cidr_block = "10.0.3.0/24"
-#  availability_zone = "us-west-2c"
-#
-#}
+resource "aws_subnet" "private_subnet_a" {
+  vpc_id     = data.aws_vpc.selected_vpc
+  cidr_block = var.cidr_block_private_a
+  availability_zone = var.availability_zone_a
+}
+resource "aws_subnet" "private_subnet_b" {
+  vpc_id     = data.aws_vpc.selected_vpc
+  cidr_block = var.cidr_block_private_b
+  availability_zone = var.availability_zone_b
+}
+resource "aws_subnet" "private_subnet_c" {
+  vpc_id     = data.aws_vpc.selected_vpc
+  cidr_block = var.cidr_block_private_c
+  availability_zone = var.availability_zone_c
+}
