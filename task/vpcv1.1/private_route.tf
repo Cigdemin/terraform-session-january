@@ -25,7 +25,7 @@ resource "aws_nat_gateway" "task_natgw" {
 
 
 resource "aws_route_table" "tasktest_private_route_table" {
-  vpc_id = data.aws_vpc.selected_vpc.id
+  vpc_id = aws_vpc.my_task_vpc.id
 
   route {
     cidr_block = var.cidr_blocks
