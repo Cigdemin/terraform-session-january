@@ -1,8 +1,3 @@
-variable "vpc_id" {
-  type = string
-  description = "to give vpc id"
-  default = "($d,var.)"
-}
 variable "vpc_name" {
   type = string
   description = "This is giving the vpc man"
