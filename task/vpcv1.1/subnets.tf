@@ -10,7 +10,7 @@ data "aws_vpc" "selected_vpc" {
   id = var.vpc_id
 }
 
-resource "aws_subnet" "public_subnet_$${var.az_name}" {
+resource "aws_subnet" "public_subnet${var.az_name}" {
   vpc_id     = data.aws_vpc.selected_vpc
   cidr_block = var.az_name.cidrblock
   availability_zone = var.az_name.availabilityzone
