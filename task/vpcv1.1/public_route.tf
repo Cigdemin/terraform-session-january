@@ -10,14 +10,14 @@
 # choose destination :0.0.0.0/0 choose IGW that created and save changes
 
 resource "aws_internet_gateway" "task_igw" {
-  vpc_id = data.aws_vpc.selected_vpc
+  vpc_id = data.aws_vpc.selected_vpc.id
   tags = {
     Name = "task_igw"
   }
 }
 
 resource "aws_route_table" "public_route_table" {
-  vpc_id = data.aws_vpc.selected_vpc
+  vpc_id = data.aws_vpc.selected_vpc.id
   route {
     cidr_block = var.cidr_blocks
     gateway_id = aws_internet_gateway.task_igw.id
