@@ -15,12 +15,19 @@ variable "vpc_cidr_block" {
 }
 variable "az_name" {
   type = list(object ({
-    zonename = "a"
-    cidrblock = "10.0.1.0/24"
-    availabilityzone = "us-west-2b"
+    zonename = string
+    cidrblock = string
+    availabilityzone = string
 
   }))
   description = "defines availability zone"
+  default = [
+    {
+    zonename = "a"
+    cidrblock = "10.0.1.0/24"
+    availabilityzone = "us-west-2b"
+    }
+  ]
 }
 
 
