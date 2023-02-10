@@ -34,27 +34,27 @@ variable "availability_zone_c" {
 
 variable "cidr_block_public_a" {
   type = string
-  default = "10.0.1.0/24"
+  default = "10.1.0.0/24"
 }
 variable "cidr_block_public_b" {
   type = string
-  default = "10.0.2.0/24"
+  default = "10.2.0.0/24"
 }
 variable "cidr_block_public_c" {
   type = string
-  default = "10.0.3.0/24"
+  default = "10.3.0.0/24"
 }
 variable "cidr_block_private_a" {
   type = string
-  default = "10.0.11.0/24"
+  default = "10.11.0.0/24"
 }
 variable "cidr_block_private_b" {
   type = string
-  default = "10.0.12.0/24"
+  default = "10.12.0.0/24"
 }
 variable "cidr_block_private_c" {
   type = string
-  default = "10.0.13.0/24"
+  default = "10.13.0.0/24"
 }
 variable "cidr_blocks" {
   type = string
