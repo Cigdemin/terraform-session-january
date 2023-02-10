@@ -14,7 +14,7 @@ variable "vpc_id" {
 
 variable "cidr_blocks" {
   type = string
-  description = "defines CIDR block"
+  description = "defines CIDR block for all traffic"
   default = "0.0.0.0/0"
 }
 variable "protocol" {
