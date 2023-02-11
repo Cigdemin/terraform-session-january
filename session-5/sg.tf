@@ -4,7 +4,7 @@ resource "aws_security_group" "main_sg" {
 }
 
 resource "aws_security_group_rule" "ingress" {
-  count = 2
+  count = length[var.ports]
   type              = "ingress"
   to_port           = element(var.ports , count.index) #22
   from_port         = element(var.ports , count.index) #22
