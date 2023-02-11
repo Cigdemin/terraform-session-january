@@ -1,4 +1,5 @@
 resource "aws_instance" "main" {
+  count = 3
   ami           = data.aws_ami.amazon_linux_2.id
   instance_type = var.instance_type
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # alist of strings #dynamic referances
@@ -7,3 +8,5 @@ resource "aws_instance" "main" {
     Name1 = format("%s-instance",var.env) #dev-instance
   }
 }
+
+# count is a meta argument, help you with replicating the resources
