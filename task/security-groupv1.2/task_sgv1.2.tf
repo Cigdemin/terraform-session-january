@@ -9,7 +9,7 @@ resource "aws_security_group_rule" "ingress" {
   type              = "ingress"
   to_port           = element(var.ports , count.index) 
   from_port         = element(var.ports , count.index)
-  cidr_blocks = [ var.cidr_all ]
+  cidr_blocks = [ var.cidr_block_all ]
   security_group_id = aws_security_group.task_sg.id
   protocol          = var.protocol
 }

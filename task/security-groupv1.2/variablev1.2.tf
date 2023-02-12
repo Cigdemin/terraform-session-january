@@ -5,7 +5,7 @@ variable "sg_name" {
   description = "This is asecurity group opens 10 ports"
   default = "tasksg"
 }
-variable "cidr_all {
+variable "cidr_block_all {
   type = string
   description = "defines CIDR block for all traffic"
   default = "0.0.0.0/0"
