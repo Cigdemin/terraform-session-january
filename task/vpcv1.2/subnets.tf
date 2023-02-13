@@ -7,7 +7,7 @@
 # IPv4 CIDR block : 10.0.11.0/24 , 10.0.12.0/24 , 10.0.13.0/24
 
 
-resource "aws_subnet" "public_subnet_a" {
+resource "aws_subnet" "subnets" {
   count = length(var.subnet_cidr_blocks)
   vpc_id     = aws_vpc.my_task_vpc.id
   cidr_block = element(var.subnet_cidr_blocks, count.index )
