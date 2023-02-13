@@ -32,7 +32,7 @@ variable "public_subnet_names" {
   default = ["public_a","public_b","public_c"]
   description = "define subnet names"
 }
-variable "Private_subnet_names" {
+variable "private_subnet_names" {
   type = list(string)
   default = ["private_a","private_b","private_c"]
   description = "define subnet names"
