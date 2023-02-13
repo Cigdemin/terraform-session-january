@@ -27,7 +27,6 @@ variable "subnet_names" {
   default = ["public_a","public_b","public_c","private_a","private_b","private_c"]
   description = "define subnet names"
 }
-
 variable "cidr_blocks" {
   type = string
   description = "defines CIDR block for all traffic"

@@ -13,7 +13,6 @@ resource "aws_subnet" "subnets" {
   cidr_block = element(var.subnet_cidr_blocks, count.index )
   availability_zone = element(var.availability_zone, 2 )
   tags = {
-    count = length(var.subnet_names)
-    "name" = "subnet_${element(var.subnet_names, count.index )}"
+    name = "subnet_${element(var.subnet_names, count.index )}"
   }
 }
