@@ -16,7 +16,7 @@ resource "aws_eip" "task-eip" {
 resource "aws_nat_gateway" "task_natgw" {
   allocation_id = aws_eip.task-eip.id
   connectivity_type = "public"
-  subnet_id         = element(var.public_subnet_names,0)
+  subnet_id         = element(aws_subnet.public_subnets,0)
   depends_on = [aws_internet_gateway.task_igw]
     tags = {
     Name = "task_natgw"
