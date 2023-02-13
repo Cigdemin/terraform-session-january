@@ -11,7 +11,7 @@ variable "vpc_cidr_block" {
 #variables for public subnet a
 
 variable "availability_zone" {
-  type = list(string)
+  type = string(list)
   description = "Defines AZ for the subnet"
   default = ["us-west-2a","us-west-2b","us-west-2c" ]
 }
