@@ -10,47 +10,24 @@ variable "vpc_cidr_block" {
 }
 #variables for public subnet a
 
-variable "availability_zone_a" {
-  type = string
+variable "availability_zone" {
+  type = string(list)
   description = "Defines AZ for the subnet"
-  default = "us-west-2a" 
-}
-variable "availability_zone_b" {
-  type = string
-  description = "Defines AZ for the subnet"
-  default = "us-west-2b" 
-}
-variable "availability_zone_c" {
-  type = string
-  description = "Defines AZ for the subnet"
-  default = "us-west-2c" 
+  default = ["us-west-2a","us-west-2b","us-west-2c" ]
 }
 #variables for CIDR blocks
 
-variable "cidr_block_public_a" {
-  type = string
-  default = "10.0.1.0/24"
+variable "subnet_cidr_blocks" {
+  type = list(string)
+  default = ["10.0.1.0/24","10.0.2.0/24","10.0.3.0/24","10.0.11.0/24","10.0.12.0/24","10.0.13.0/24"]
+  description = "define subnets CIDR blocks"
 }
-variable "cidr_block_public_b" {
-  type = string
-  default = "10.0.2.0/24"
+variable "subnet_names" {
+  type = list(string)
+  default = ["public_a","public_b","public_c","private_a","private_b","private_c"]
+  description = "define subnet names"
 }
-variable "cidr_block_public_c" {
-  type = string
-  default = "10.0.3.0/24"
-}
-variable "cidr_block_private_a" {
-  type = string
-  default = "10.0.11.0/24"
-}
-variable "cidr_block_private_b" {
-  type = string
-  default = "10.0.12.0/24"
-}
-variable "cidr_block_private_c" {
-  type = string
-  default = "10.0.13.0/24"
-}
+
 variable "cidr_blocks" {
   type = string
   description = "defines CIDR block for all traffic"
