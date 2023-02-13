@@ -11,7 +11,7 @@ resource "aws_subnet" "subnets" {
   count = length(var.subnet_cidr_blocks)
   vpc_id     = aws_vpc.my_task_vpc.id
   cidr_block = element(var.subnet_cidr_blocks, count.index )
-  availability_zone = element(var.availability_zone, 2 )
+  availability_zone = element(var.availability_zone, count.index )
   tags = {
     name = "subnet_${element(var.subnet_names, count.index )}"
   }
