@@ -20,5 +20,5 @@ resource "aws_security_group_rule" "egress" {
   protocol          = "-1"
   from_port         = 0
   security_group_id = aws_security_group.task_sg.id
-  cidr_blocks = [ var.cidr_all ]
+  cidr_blocks = [ var.cidr_block_all ]
 }
