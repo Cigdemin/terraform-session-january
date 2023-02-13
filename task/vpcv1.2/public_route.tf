@@ -25,8 +25,7 @@ resource "aws_route_table" "public_route_table" {
 }
 
 resource "aws_route_table_association" "public_subnets" {
-  count = 3
-  subnet_id      = data.aws_subnet.subnet_public[count.index].id
-  route_table_id = aws_route_table.public_route_table.id
-  
+  count = length(var.public_subnet_cidr_blocks)
+  subnet_id      = aws_subnet.public_subnet_public[count.index].id
+  route_table_id = aws_route_table.public_route_table.id 
 }

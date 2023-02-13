@@ -7,12 +7,21 @@
 # IPv4 CIDR block : 10.0.11.0/24 , 10.0.12.0/24 , 10.0.13.0/24
 
 
-resource "aws_subnet" "subnets" {
-  count = length(var.subnet_cidr_blocks)
+resource "aws_subnet" "public_subnets" {
+  count = length(var.public_subnet_cidr_blocks)
   vpc_id     = aws_vpc.my_task_vpc.id
-  cidr_block = element(var.subnet_cidr_blocks, count.index )
+  cidr_block = element(var.public_subnet_cidr_blocks, count.index )
   availability_zone = element(var.availability_zone, count.index )
   tags = {
-    name = "subnet_${element(var.subnet_names, count.index )}"
+    name = "${element(var.public_subnet_names, count.index )}"
+  }
+}
+resource "aws_subnet" "private_subnets" {
+  count = length(var.private_subnet_cidr_blocks)
+  vpc_id     = aws_vpc.my_task_vpc.id
+  cidr_block = element(var.private_subnet_cidr_blocks, count.index )
+  availability_zone = element(var.availability_zone, count.index )
+  tags = {
+    name = "subnet_${element(var.private_subnet_names, count.index )}"
   }
 }
