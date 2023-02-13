@@ -2,7 +2,7 @@
 data "aws_subnet" "public" {
 count = length(var.subnet_names)
   filter {
-    name = "*public*"
-    values = element(var.subnet_names,count.index)
+    name = "tag:name"
+    values = format(["subnet_public_%s"], element(var.subnet_names, count.index))
   }
 }
