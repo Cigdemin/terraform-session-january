@@ -16,7 +16,7 @@ resource "aws_eip" "task-eip" {
 resource "aws_nat_gateway" "task_natgw" {
   allocation_id = aws_eip.task-eip.id
   connectivity_type = "public"
-  subnet_id         = element(var.aws_subnet.public_subnet,1)
+  subnet_id         = element(var.public_subnet,1)
   depends_on = [aws_internet_gateway.task_igw]
     tags = {
     Name = "task_natgw"
@@ -24,7 +24,7 @@ resource "aws_nat_gateway" "task_natgw" {
 }
 
 
-resource "aws_route_table" "tasktest_private_route_table" {
+resource "aws_route_table" "private_route_table" {
   vpc_id = aws_vpc.my_task_vpc.id
 
   route {
