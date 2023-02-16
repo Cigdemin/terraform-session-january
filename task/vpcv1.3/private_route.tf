@@ -14,7 +14,7 @@ resource "aws_eip" "task-eip" {
 }
 
 resource "aws_nat_gateway" "task_natgw" {
-  name = replace(local.name , "resource","NATGW")
+  #name = replace(local.name , "resource","NATGW")
   allocation_id = aws_eip.task-eip.id
   connectivity_type = "public"
   subnet_id         = element(aws_subnet.public_subnets,0).id
@@ -24,7 +24,7 @@ resource "aws_nat_gateway" "task_natgw" {
 
 
 resource "aws_route_table" "private_route_table" {
-  name = replace(local.name , "resource","private_route_table")
+  #name = replace(local.name , "resource","private_route_table")
   vpc_id = aws_vpc.my_task_vpc.id
   route {
     cidr_block = var.cidr_blocks

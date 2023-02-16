@@ -17,7 +17,7 @@ resource "aws_subnet" "public_subnets" {
   tags = local.common_tags
 }
 resource "aws_subnet" "private_subnets" {
-  name = replace(local.name , "resource","${element(var.private_subnet_names, count.index )}")
+  #name = replace(local.name , "resource","${element(var.private_subnet_names, count.index )}")
   count = length(var.private_cidr_blocks)
   vpc_id     = aws_vpc.my_task_vpc.id
   cidr_block = element(var.private_cidr_blocks, count.index )
