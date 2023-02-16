@@ -10,13 +10,13 @@
 # choose destination :0.0.0.0/0 choose IGW that created and save changes
 
 resource "aws_internet_gateway" "task_igw" {
-  name = replace(local.name , "resource","IGW")
+  #name = replace(local.name , "resource","IGW")
   vpc_id = aws_vpc.my_task_vpc.id
   tags = local.common_tags
 }
 
 resource "aws_route_table" "public_route_table" {
-  name = replace(local.name , "resource","public_route_table")
+  #name = replace(local.name , "resource","public_route_table")
   vpc_id = aws_vpc.my_task_vpc.id
   route {
     cidr_block = var.cidr_blocks
