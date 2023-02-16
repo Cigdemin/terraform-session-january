@@ -20,7 +20,11 @@ resource "aws_autoscaling_group" "task_asg" {
   max_size                  = 2
   min_size                  = 1
   desired_capacity          = 1
-  launch_template           = aws_launch_template.asg_template.name
+  launch_template {
+    name = aws_launch_template.asg_template.name
+    tags = merge ( local.common_tags, local.asg_tags )
+}
+}
   #concat takes two or more lists and combines them into a single list.
   #tags = merge ( local.common_tags, local.asg_tags )
-}
+
