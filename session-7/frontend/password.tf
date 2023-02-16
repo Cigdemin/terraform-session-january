@@ -6,5 +6,13 @@ resource "random_password" "db_password" {
 data "aws_s3_object" "getting_db_password" {
     bucket = "terraform-session-september-backend-cigdem"
     key = "session-7/frontend/terraform.tfstate"
-    fetch_owner = ["self"]
+    filter {
+        name   = "name"
+        values = ["db_password"]
+  }
+
+    filter {
+        name   = "length"
+        values = ["20"]
+  }
 }
