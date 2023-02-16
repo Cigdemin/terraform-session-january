@@ -14,6 +14,7 @@
 locals {
   name = "aws-${var.team}-${var.env}-${var.app}-resource-${var.index}"
   common_tags = {
+    Name = replace(local.name , "resource","securitygroup")
     Environment = var.env
     Team = var.team
     App = var.app
