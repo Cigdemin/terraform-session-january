@@ -23,7 +23,7 @@ resource "aws_autoscaling_group" "task_asg" {
   launch_configuration      = aws_launch_template.asg_template.name
   #concat takes two or more lists and combines them into a single list.
   #tags = {local.common_tags }
-  tags = merge(
+  tags = concat(
     local.common_tags,
     {
       propagate_at_launch = true
