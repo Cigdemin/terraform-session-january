@@ -8,7 +8,7 @@
 # Then Create vpc
 
 resource "aws_vpc" "my_task_vpc" {
-  name = replace(local.name , "resource","vpc")
+  Name = replace(local.name , "resource","vpc")
   cidr_block       = var.vpc_cidr_block
   tags = local.common_tags
 }
