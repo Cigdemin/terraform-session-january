@@ -8,7 +8,8 @@
 
 
 resource "aws_subnet" "public_subnets" {
-  name = replace(local.name , "resource","${element(var.public_subnet_names, count.index )}")
+  # Subnets dont accept name as argument
+  #name = replace(local.name , "resource","${element(var.public_subnet_names, count.index )}")
   count = length(var.public_cidr_blocks)
   vpc_id     = aws_vpc.my_task_vpc.id
   cidr_block = element(var.public_cidr_blocks, count.index )
