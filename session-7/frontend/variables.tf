@@ -4,11 +4,11 @@ variable "env" {
 }
 variable "team" {
   type = string
-  default = "devops"
+  default = "september2022"
 }
 variable "app" {
   type = string
-  default = "shera"
+  default = "task"
 }
 variable "index" {
   type = string
