@@ -13,7 +13,7 @@ resource "aws_launch_template" "asg_template" {
   name = "aws-${var.team}-${var.env}-${var.app}-asg-launch-template-${var.index}"
   image_id      = data.aws_ami.amazon_linux_2.id
   instance_type = "t2.micro"
-  tags = local.common_tags
+  #launch configuration doesnt have tags argument
 }
 resource "aws_autoscaling_group" "task_asg" {
   name = "aws-${var.team}-${var.env}-${var.app}-asg-${var.index}"
