@@ -3,7 +3,7 @@ resource "aws_security_group" "task_sg" {
   name        = replace(local.name , "resource","securitygroup")
   description = "This security group allows inbound traffic for 10 ports"
   vpc_id = var.vpc_id
-  tags = merge((replace(local.name , "resource","securitygroup")),local.common_tags)
+  tags = local.common_tags
 }
 resource "aws_security_group_rule" "ingress" {
   count = length(var.ports)
