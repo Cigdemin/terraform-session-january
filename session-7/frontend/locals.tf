@@ -20,7 +20,6 @@ locals {
     Managed_by = var.managed_by
     Owner = var.owner
   }
-  propagate_at_launch = "true"
 }
 
 
