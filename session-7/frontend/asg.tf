@@ -20,8 +20,10 @@ resource "aws_autoscaling_group" "task_asg" {
   max_size                  = 2
   min_size                  = 1
   desired_capacity          = 1
-  launch_configuration      = aws_launch_template.asg_template.name
-  #concat takes two or more lists and combines them into a single list.
-  #tags = {local.common_tags }
-  tags = local.common_tags
+  launch_configuration      = aws_launch_template.asg_template.name#concat takes two or more lists and combines them into a single list.
+  tags = {
+    "key" = "name"
+    "value" = "aws-${var.team}-${var.env}-${var.app}-asg-${var.index}"
+    "propagate_at_launch" = true
+  }
 }
