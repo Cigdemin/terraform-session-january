@@ -13,6 +13,7 @@ resource "aws_launch_template" "asg_template" {
   name = "aws-${var.team}-${var.env}-${var.app}-asg-launch-template-${var.index}"
   image_id      = data.aws_ami.amazon_linux_2.id
   instance_type = "t2.micro"
+  tags = merge ( local.common_tags, local.asg_tags )
   #launch configuration doesnt have tags argument
 }
 resource "aws_autoscaling_group" "task_asg" {
@@ -22,7 +23,6 @@ resource "aws_autoscaling_group" "task_asg" {
   desired_capacity          = 1
   launch_template {
     name = aws_launch_template.asg_template.name
-    tags = merge ( local.common_tags, local.asg_tags )
 }
 }
   #concat takes two or more lists and combines them into a single list.
