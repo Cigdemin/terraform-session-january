@@ -16,7 +16,7 @@ resource "aws_launch_template" "asg_template" {
   tags = local.common_tags
 }
 resource "aws_autoscaling_group" "task_asg" {
-  name                      = name = "aws-${var.team}-${var.env}-${var.app}-asg-${var.index}"
+  name = "aws-${var.team}-${var.env}-${var.app}-asg-${var.index}"
   max_size                  = 2
   min_size                  = 1
   desired_capacity          = 1
