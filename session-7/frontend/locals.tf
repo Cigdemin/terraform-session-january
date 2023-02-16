@@ -13,7 +13,7 @@
 
 locals {
   name = "aws-${var.team}-${var.env}-${var.app}-resource-${var.index}"
-  comman_tags = {
+  common_tags = {
     Environment = var.env
     Team = var.team
     App = var.app
