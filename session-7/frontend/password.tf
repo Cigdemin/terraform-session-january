@@ -4,6 +4,6 @@ resource "random_password" "db_password" {
     override_special = "%@"
 }
 output "db_password" {
-  value       = random_password.db_password.password
+  value       = random_password.db_password.special
   description = "The password for logging in to the database."
 }
