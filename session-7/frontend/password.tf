@@ -3,16 +3,7 @@ resource "random_password" "db_password" {
     special = true
     override_special = "%@"
 }
-data "aws_s3_object" "getting_db_password" {
-    bucket = "terraform-session-september-backend-cigdem"
-    key = "session-7/frontend/terraform.tfstate"
-    filter {
-        name   = "name"
-        values = ["db_password"]
-  }
-
-    filter {
-        name   = "length"
-        values = ["20"]
-  }
+output "db_password" {
+  value       = random_password.db_password.password
+  description = "The password for logging in to the database."
 }
