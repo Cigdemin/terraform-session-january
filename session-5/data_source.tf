@@ -13,3 +13,11 @@ data "aws_ami" "amazon_linux_2" {
     values = ["x86_64"]
   }
 }
+
+data "aws_vpc" "default_vpc" {
+  id = var.vpc_id
+}
+
+data "aws_subnet" "default_subnets" {
+  vpc_id = data.aws_vpc.default_vpc.id
+}
