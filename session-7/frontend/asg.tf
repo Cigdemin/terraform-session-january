@@ -17,7 +17,6 @@ resource "aws_launch_template" "asg_template" {
   #launch configuration doesnt have tags argument
 }
 resource "aws_autoscaling_group" "task_asg" {
-  count = length(data.aws_subnet.default_subnets.id)
   name = "aws-${var.team}-${var.env}-${var.app}-asg-${var.index}"
   max_size                  = 2
   min_size                  = 1
@@ -25,7 +24,7 @@ resource "aws_autoscaling_group" "task_asg" {
   launch_template {
     name = aws_launch_template.asg_template.name
 }
-  vpc_zone_identifier       = [element(data.aws_subnet.default_subnets.id, count.index )]
+  vpc_zone_identifier       = ["us-west-2", "us-west-2"]
 }
   #concat takes two or more lists and combines them into a single list.
   #tags = merge ( local.common_tags, local.asg_tags )
