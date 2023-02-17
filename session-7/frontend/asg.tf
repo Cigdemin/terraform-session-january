@@ -21,7 +21,7 @@ resource "aws_autoscaling_group" "task_asg" {
   max_size                  = 2
   min_size                  = 1
   desired_capacity          = 1
-  vpc_zone_identifier       = ["us-west-2a", "us-west-2b","us-west-2c"]
+  availability_zones = ["us-west-2a", "us-west-2b","us-west-2c"]
   launch_template {
     name = aws_launch_template.asg_template.name
 } 
