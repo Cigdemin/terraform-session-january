@@ -22,3 +22,7 @@ variable "owner" {
   type = string
   default = "cigdem"
 }
+
+variable "vpc_id" {
+  default = true
+}
