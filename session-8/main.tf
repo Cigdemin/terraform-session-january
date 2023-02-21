@@ -5,7 +5,7 @@ resource "aws_instance" "main" {
     key_name = aws_key_pair.terraform_server.key_name
 
     provisioner "file" {
-      source = "~/home/ec2-user/terraform-session-january/session-8/index.html"   #the path on Terraform Server
+      source = "~/terraform-session-january/session-8/index.html"   #the path on Terraform Server
       destination = "/tmp/index.html"   #the path for the Remote Server
 
       connection {
