@@ -1,5 +1,5 @@
 resource "aws_security_group" "main" {   
-  name        = var.name
+  name        = "${var.env}-sg"
   description = "Allow SSH inbound traffic"
 
   ingress {
