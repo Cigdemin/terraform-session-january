@@ -15,3 +15,9 @@ variable "instance_type" {
     default = "t2.micro"
     description = "Instance size"   
 }
+
+variable "sg" {
+  type = list(string)
+  default = ""
+  description = "List of security group ids"
+}
