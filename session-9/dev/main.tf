@@ -10,7 +10,7 @@ module "ec2_instance" {
   env = "dev"
   ami = "ami-06e85d4c3149db26a"
   instance_type = "t2.micro"
-  sg = [module.ec2_sg.id]
+  sg = [module.ec2_sg.main_sg_id] # module.module_name.output_name
 }
 
 module "ec2_sg" {
@@ -20,3 +20,4 @@ module "ec2_sg" {
 
 # how to referance to child module?
 # you can only referance to output of child module
+# module.module_name.output_name
