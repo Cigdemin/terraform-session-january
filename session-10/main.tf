@@ -6,6 +6,15 @@ module "ec2" {
     ami = "ami-06e85d4c3149db26a"
     instance_type = "t2.micro"
 }
+
+#TerraformRegistry
+
+module "vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "3.19.0"
+}
+
+
 # github.com = domain name
 # /Cigdemin = user/organization
 #/terraform-session-january = repository
@@ -15,3 +24,4 @@ module "ec2" {
 
 # git release snapshot of your code zip or tar file
 # git tag is sementic versioning
+
