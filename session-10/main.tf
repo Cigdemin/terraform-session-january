@@ -12,8 +12,8 @@ module "ec2" {
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.19.0"
+  cidr_block = "10.0.0.0/16"
 }
-
 
 # github.com = domain name
 # /Cigdemin = user/organization
