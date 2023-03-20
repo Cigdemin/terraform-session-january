@@ -23,7 +23,7 @@ resource "aws_security_group" "dynamic_sg" {
 }
 
 resource "aws_security_group" "cigdem_sg" {   
-  name        = "dynamic_sg"
+  name        = "cigdem_sg"
   description = "Allow inbound traffic with dynamic block"
 
   dynamic "ingress" {
