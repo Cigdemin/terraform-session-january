@@ -1,0 +1,25 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "DenyAllAccessOutsideUSEAST1",
+			"Effect": "Deny",
+			"Action": [
+				"*"
+			],
+			"Resource": [
+				"*"
+			],
+			"Condition": {
+				"StringNotEquals": {
+					"aws:RequestedRegion": [
+						"us-east-1"
+					]
+				}
+			}
+		}
+	]
+}
+
+#This policy denies all access to Aws resources other than "us-east-1" region.
+#DenyAllAccessOutsideUsEast1
